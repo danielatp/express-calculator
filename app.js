@@ -17,3 +17,47 @@ Bonus: Handle decimals
 Other Bonus: Style the page. Serve a stylesheet in yout express app!
 */
 
+const express = require('express');
+const app = express();
+// const route = require('./routes');
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`listening to port ${PORT}`);
+});
+
+app.get('/', (req, res) => {
+  res.send('HELLO')
+});
+
+app.get('/add/:num1/:num2', (req, res) => {
+
+    var n1 = parseFloat(req.params.num1);
+    var n2 = parseFloat(req.params.num2);
+    var sum = n1 + n2;
+
+    res.send(`${sum}`);
+
+  });
+
+  app.get('/sub/:num1/:num2', (req, res) => {
+    var n1 = parseFloat(req.params.num1);
+    var n2 = parseFloat(req.params.num2);
+    var sub = n1 - n2;
+    res.send(`${sub}`);
+  });
+
+  app.get('/mult/:num1/:num2', (req, res) => {
+    var n1 = parseFloat(req.params.num1);
+    var n2 = parseFloat(req.params.num2);
+    var mult = n1 * n2;
+    res.send(`${mult}`);
+  });
+
+  app.get('/div/:num1/:num2', (req, res) => {
+    var n1 = parseFloat(req.params.num1);
+    var n2 = parseFloat(req.params.num2);
+    var div = n1 / n2;
+    res.send(`${div}`);
+  });
+
